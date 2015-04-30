@@ -8,11 +8,12 @@ def transform(path, current) :
     if 'spa' in path :
 	return
 
-    tmp_list = path.split('_') 
+    tmp_path= os.path.basename( path ) 
+    tmp_list = tmp_path.split('_') 
     tmp_str = tmp_list[0]
-    tmp_list_1 = tmp_str.split('\\')
-    output_name = tmp_list_1[-1]
-    output_name += '.txt'
+    # tmp_list_1 = tmp_str.split('\\')
+    # output_name = tmp_list_1[-1]
+    output_name = tmp_str + '.txt'
     output_name = os.path.join( current , output_name )
     lines = open(path, 'r').readlines()
     file = open(output_name, "w")
